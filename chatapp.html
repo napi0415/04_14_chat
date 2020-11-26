@@ -15,10 +15,10 @@
 </head>
 
 <body>
-    <div id="container">
-        <h1>realtime chat</h1>
+    <div class="line_container">
+        <h1 class="line_title">realtime chat</h1>
         <!-- 入力場所を作成しよう -->
-        <div id="message">
+        <div class="line_contents scroll">
             <ul>
                 <li>
                     <label for="name">name</label> <input type="text" id="name">
@@ -31,7 +31,9 @@
                 </li>
             </ul>
             <!-- データ出力場所 -->
-            <ul id="output"></ul>
+            <div id="output_scroll">
+                <ul id="output"></ul>
+            </div>
         </div>
     </div>
 

@@ -1,18 +1,43 @@
-#container{
-    
+.line_container{
+    padding: 0;
+    background: #7494c0;
+    overflow: hidden;
+    max-width: 400px;
+    margin: 20px auto;
+    font-size: 80%;
 
-    height:600px;
-    width: 50%;
+    /* height:600px;
+    width: 50%; */
+}
+/* タイトル部分 */
+.line_container .line_title{
+    color: white;
+    background :#273246;
+    padding: 10px;
+    text-align: center;
+    font-size: 150%;
+
+}
+/* 会話部分 */
+.line_container .line_contents {
+    padding: 10px;
+    overflow: hidden;
+    line-height: 135%;
 }
 
-#message{
-    height: 100%;
-    width: 100%;
-    background-color: #eee;
+.line_container .scroll{
+    height: 500px;
+    overflow: scroll;
 }
 
     #text{
-        width: calc(100% - 75px);
+        width: 100%;
+    position: relative;
+    display: block;
+    margin-bottom: 5px;
+    max-width: 80%;
+    clear: both;
+        /* width: calc(100% - 75px);
         line-height: 16px;
         height: 48px;
         padding: 14px 6px 0px 6px;
@@ -20,7 +45,7 @@
         border-radius: 4px;
         text-align: left;
         box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.2) inset;
-        box-sizing: border-box;
+        box-sizing: border-box; */
 
     }
     #send {
