@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="css/main.css">
     <title>chatApp</title>
     <style>
-        #output li {
+        /* #output li {
             background: #ccc;
-        }
+        } */
     </style>
 </head>
 
@@ -19,21 +19,28 @@
         <h1 class="line_title">realtime chat</h1>
         <!-- 入力場所を作成しよう -->
         <div class="line_contents scroll">
-            <ul>
-                <li>
-                    <label for="name">name</label> <input type="text" id="name">
-                </li>
-                <li>
-                    <textarea name="" id="text" cols="30" rows="10"></textarea>
-                </li>
-                <li>
-                    <button id="send">send</button>
-                </li>
-            </ul>
-            <!-- データ出力場所 -->
+            <!-- メッセージロールを上に表示 -->
             <div id="output_scroll">
                 <ul id="output"></ul>
             </div>
+
+            <div>
+                <div>
+                    <label for="name">name</label> <input type="text" id="name">
+                </div>
+
+                <div class="text_send">
+                    <div class="text_area"><textarea name="" id="text" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="send_area"> <button id="send">send</button>
+                    </div>
+                </div>
+
+            </div>
+            <!-- データ出力場所 -->
+            <!-- <div id="output_scroll">
+                <ul id="output"></ul>
+            </div> -->
         </div>
     </div>
 
@@ -103,7 +110,7 @@
         });
 
         // データをリアルタイムに取得する処理
-        db.orderBy('time', 'desc').onSnapshot(function (querySnapshot) {
+        db.orderBy('time', 'asc').onSnapshot(function (querySnapshot) {
             // まずはconsole.log()で出力してデータの形を確認！
             console.log(querySnapshot.docs);
             const dataArray = [];

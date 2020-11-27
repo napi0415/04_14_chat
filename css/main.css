@@ -6,9 +6,7 @@
     margin: 20px auto;
     font-size: 80%;
 
-    /* height:600px;
-    width: 50%; */
-}
+    }
 /* タイトル部分 */
 .line_container .line_title{
     color: white;
@@ -18,7 +16,7 @@
     font-size: 150%;
 
 }
-/* 会話部分 */
+/* チャット部分 */
 .line_container .line_contents {
     padding: 10px;
     overflow: hidden;
@@ -30,39 +28,43 @@
     overflow: scroll;
 }
 
-    #text{
-        width: 100%;
-    position: relative;
-    display: block;
-    margin-bottom: 5px;
-    max-width: 80%;
-    clear: both;
-        /* width: calc(100% - 75px);
-        line-height: 16px;
-        height: 48px;
-        padding: 14px 6px 0px 6px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        text-align: left;
-        box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.2) inset;
-        box-sizing: border-box; */
-
-    }
-    #send {
-        width: 72px;
-        height: 48px;
-        font-size: 16px;
-        line-height: 3em;
+/* inline-blockでマーカーを消す */
+/* .output_scroll{
+    display: inline-block;
+} */
+/* li{
+    flex-direction: column;
+    display: inline-block;
+} */
+    .text_send{
+        display: flex;
+        height: 10vh;
         
-        color: #fff;
-        font-weight: bold;
-        background: #bcbcbc;
-        text-align: center;
-        border: 1px solid #bbb;
-        border-radius: 4px;
+    }
+    .text_area{
+        width: 80%;
+    }
+    .semd_area{
+        width: 20%;
+    }
+#text{
+    
+        width: 100%;
+        height: 100%;
+        resize: none;
+        border: 1px solid #ddd;
         box-sizing: border-box;
     }
     #send {
-        background: #13178E; 
+        /* width: 100%; */
+        height: 100%;
+        background: #61E739;
+        color: #fff;
+        font-size: 1.0rem;
+        font-weight: bold;
+        border: 0ch;
         cursor: pointer;
+        width: 72px;
+        
     }
+    
