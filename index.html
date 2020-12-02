@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- boostrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <title>chatApp</title>
     <style>
@@ -15,32 +18,59 @@
 </head>
 
 <body>
-    <div class="line_container">
-        <h1 class="line_title">realtime chat</h1>
-        <!-- 入力場所を作成しよう -->
-        <div class="line_contents scroll">
-            <!-- メッセージロールを上に表示 -->
-            <div id="output_scroll">
-                <ul id="output"></ul>
-            </div>
+    <div class="line">
+        <!-- 左の人 -->
+        <div class="line_container">
+            <h1 class="line_title">realtime chat</h1>
+            <!-- 入力場所を作成しよう -->
+            <div class="line_contents_scroll">
+                <!-- メッセージロールを上に表示 -->
+                <div id="output_scroll">
+                    <ul id="output"></ul>
+                </div>
 
-            <div>
                 <div>
-                    <label for="name">name</label> <input type="text" id="name">
-                </div>
+                    <div>
+                        <label for="name">name</label> <input type="text" id="name">
+                    </div>
 
-                <div class="text_send">
-                    <div class="text_area"><textarea name="" id="text" cols="30" rows="10"></textarea>
+                    <div class="text_send">
+                        <div class="text_area"><textarea name="" id="text" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="send_area"> <button id="send">send</button>
+                        </div>
                     </div>
-                    <div class="send_area"> <button id="send">send</button>
-                    </div>
+
                 </div>
 
             </div>
-            <!-- データ出力場所 -->
-            <!-- <div id="output_scroll">
-                <ul id="output"></ul>
-            </div> -->
+        </div>
+
+        <!-- 右の人 -->
+        <div class="line_container">
+            <h1 class="line_title">realtime chat</h1>
+            <!-- 入力場所を作成しよう -->
+            <div class="line_contents_scroll">
+                <!-- メッセージロールを上に表示 -->
+                <div id="output_scroll">
+                    <ul id="output"></ul>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="name">name</label> <input type="text" id="name">
+                    </div>
+
+                    <div class="text_send">
+                        <div class="text_area"><textarea name="" id="text" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="send_area"> <button id="send">send</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
     </div>
 
@@ -83,7 +113,7 @@
         // データベースの設定を記述
 
 
-        // 送信ボタンクリック時にデータを送信する処理
+        // 送信ボタンクリック時にデータを送信する処理 左の人
         $('#send').on('click', function () {
             const data = {
                 name: $('#name').val(),
@@ -108,6 +138,32 @@
                 $('#text').val('');
             }
         });
+        //送信ボタンクリック時にデータを送信する処理 右の人
+        // $('#send_r').on('click', function () {
+        //     const data = {
+        //         name: $('#name_r').val(),
+        //         text: $('#text_r').val(),
+        //         time: firebase.firestore.FieldValue.serverTimestamp(),
+        //     }
+        //     db.add(data);
+        //     $('#name_r').val('');
+        //     $('#text_r').val('');
+        // });
+
+        // send a message on keydown 
+        // $(window).keydown(function (e) {
+        //     if (e.keyCode == 13) {
+        //         const data = {
+        //             name: $('#name').val(),
+        //             text: $('#text').val(),
+        //             time: firebase.firestore.FieldValue.serverTimestamp(),
+        //         };
+        //         db.add(data);
+        //         $('#name').val('');
+        //         $('#text').val('');
+        //     }
+        // });
+
 
         // データをリアルタイムに取得する処理
         db.orderBy('time', 'asc').onSnapshot(function (querySnapshot) {
@@ -126,8 +182,8 @@
                 const tag = `
           <li id = ${data.id}>
 <p>${data.data.name}</p> 
-<p>${data.data.text}</p>            
-<p>${convertFromFirestoreTimestampToDatetime(data.data.time.seconds)}</p>
+<p class="talk",>${data.data.text}</p>            
+<p class="time">${convertFromFirestoreTimestampToDatetime(data.data.time.seconds)}</p>
 </li >
           `;
                 tagArray.push(tag);
@@ -140,6 +196,16 @@
 
 
     </script>
+    <!-- boostrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

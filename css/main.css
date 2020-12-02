@@ -1,14 +1,21 @@
+.line{
+    display: flex;
+    justify-content: center;
+}
+
 .line_container{
-    padding: 0;
+    /* padding: 0; */
     background: #7494c0;
     overflow: hidden;
     max-width: 400px;
     margin: 20px auto;
     font-size: 80%;
+    height: 660px;
+    border-radius: 14px 14px 14px 14px;
 
     }
 /* タイトル部分 */
-.line_container .line_title{
+.line_title{
     color: white;
     background :#273246;
     padding: 10px;
@@ -16,17 +23,27 @@
     font-size: 150%;
 
 }
-/* チャット部分 */
-.line_container .line_contents {
-    padding: 10px;
-    overflow: hidden;
-    line-height: 135%;
-}
 
-.line_container .scroll{
+
+/* チャット部分 */
+#output_scroll{
     height: 500px;
     overflow: scroll;
 }
+.line_contents_scroll{
+    padding: 10px;
+}
+.talk{
+    background: #ddd;
+    border: 1px solid #ddd;
+    border-radius: 14px 14px 0 14px;
+height: 2em;
+margin-bottom: 0em;
+}
+.time{
+    
+}
+
 
 /* inline-blockでマーカーを消す */
 /* .output_scroll{
@@ -36,18 +53,18 @@
     flex-direction: column;
     display: inline-block;
 } */
-    .text_send{
+    .text_send,.text_send_r{
         display: flex;
-        height: 10vh;
+        height: 3em;
         
     }
-    .text_area{
+    .text_area,.text_area_r{
         width: 80%;
     }
-    .semd_area{
+    .semd_area,.semd_area_r{
         width: 20%;
     }
-#text{
+#text,#text_r{
     
         width: 100%;
         height: 100%;
@@ -55,8 +72,8 @@
         border: 1px solid #ddd;
         box-sizing: border-box;
     }
-    #send {
-        /* width: 100%; */
+    #send ,#send_r{
+        
         height: 100%;
         background: #61E739;
         color: #fff;
